@@ -31,9 +31,9 @@ public class ApiClient {
 
 
         }catch (FileNotFoundException ex){
-
+            Toast.makeText(context.getApplicationContext(), "No se encuentra" , Toast.LENGTH_LONG).show();
         }catch (IOException io){
-
+            Toast.makeText(context.getApplicationContext(), "No existe", Toast.LENGTH_LONG).show();
         }
     }
     public static Usuario leer(Context context){
@@ -54,11 +54,11 @@ public class ApiClient {
             input.close();
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Toast.makeText(context.getApplicationContext(), "No se encuentra el archivo", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            e.printStackTrace();
+            Toast.makeText(context.getApplicationContext(), "No existe", Toast.LENGTH_LONG).show();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Toast.makeText(context.getApplicationContext(), "No encuentra", Toast.LENGTH_LONG).show();
         }
 
         return usuario;
