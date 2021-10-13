@@ -5,6 +5,8 @@ import android.widget.Toast;
 
 import com.sosa.loginconarchivo.entidad.Usuario;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -22,7 +24,8 @@ public class ApiClient {
         try {
             //Nodo
             FileOutputStream fo = new FileOutputStream(archivo, false);
-            ObjectOutputStream output = new ObjectOutputStream(fo);
+            BufferedOutputStream buff = new BufferedOutputStream(fo);
+            ObjectOutputStream output = new ObjectOutputStream(buff);
             output.writeObject(usuario);
             output.close();
 
@@ -40,7 +43,8 @@ public class ApiClient {
 
             //Read from the stored file
             FileInputStream is = new FileInputStream(archivo);
-            ObjectInputStream input = new ObjectInputStream(is);
+            BufferedInputStream buff = new BufferedInputStream(is);
+            ObjectInputStream input = new ObjectInputStream(buff);
 
                 usuario =  (Usuario) input.readObject();
 
