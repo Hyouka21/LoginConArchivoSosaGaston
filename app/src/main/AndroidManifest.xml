@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginConArchivo">
         <activity
-            android:name=".Editar"
+            android:name=".ui.registro.Editar"
             android:exported="true" />
         <activity
-            android:name=".Registro"
+            android:name=".ui.registro.Registro"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,9 +1,9 @@
-package com.sosa.loginconarchivo;
+package com.sosa.loginconarchivo.request;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.widget.Toast;
+
+import com.sosa.loginconarchivo.entidad.Usuario;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.List;
 
 public class ApiClient {
 

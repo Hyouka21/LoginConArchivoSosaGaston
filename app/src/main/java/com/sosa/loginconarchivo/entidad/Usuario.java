@@ -1,4 +1,4 @@
-package com.sosa.loginconarchivo;
+package com.sosa.loginconarchivo.entidad;
 
 import java.io.Serializable;
 

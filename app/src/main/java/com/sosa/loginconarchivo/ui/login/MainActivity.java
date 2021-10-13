@@ -1,4 +1,4 @@
-package com.sosa.loginconarchivo;
+package com.sosa.loginconarchivo.ui.login;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.sosa.loginconarchivo.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView tvAviso;

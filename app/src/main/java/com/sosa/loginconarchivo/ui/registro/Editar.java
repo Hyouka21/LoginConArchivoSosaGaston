@@ -1,4 +1,4 @@
-package com.sosa.loginconarchivo;
+package com.sosa.loginconarchivo.ui.registro;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-public class Registro extends AppCompatActivity {
+import com.sosa.loginconarchivo.R;
+import com.sosa.loginconarchivo.entidad.Usuario;
 
+public class Editar extends AppCompatActivity {
     private RegistroViewModel viewModel;
     private TextView tvAviso;
     private EditText etMail, etPass, etDni, etNombre, etApellido;
@@ -21,9 +23,21 @@ public class Registro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
-        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(RegistroViewModel.class);
+        viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
+                .create(RegistroViewModel.class);
 
         inicializarViews();
+
+        viewModel.getUsuario().observe(this, new Observer<Usuario>() {
+            @Override
+            public void onChanged(Usuario u) {
+                etDni.setText(String.valueOf(u.getDni()));
+                etApellido.setText(u.getApellido());
+                etNombre.setText(u.getNombre());
+                etMail.setText(u.getMail());
+                etPass.setText(u.getPassword());
+            }
+        });
 
         viewModel.getAvisoMutable().observe(this, new Observer<String>() {
             @Override
@@ -38,10 +52,14 @@ public class Registro extends AppCompatActivity {
                 tvAviso.setVisibility(visibility);
             }
         });
+
+        viewModel.setUsuario();
     }
 
     private void inicializarViews() {
         btGuardar = findViewById(R.id.btRegGuardar);
+        btGuardar.setText("Editar");
+
         etMail = findViewById(R.id.etRegMail);
         etPass = findViewById(R.id.etRegPass);
         etDni = findViewById(R.id.etRegdni);
@@ -59,8 +77,14 @@ public class Registro extends AppCompatActivity {
                         etMail.getText().toString(),
                         etPass.getText().toString()
                 );
-                viewModel.Guardar(u);
+                viewModel.Editar(u);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tvAviso.setVisibility(View.INVISIBLE);
     }
 }

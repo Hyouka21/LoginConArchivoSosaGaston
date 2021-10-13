@@ -1,4 +1,4 @@
-package com.sosa.loginconarchivo;
+package com.sosa.loginconarchivo.ui.login;
 
 import android.app.Application;
 import android.content.Context;
@@ -9,6 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.sosa.loginconarchivo.entidad.Usuario;
+import com.sosa.loginconarchivo.request.ApiClient;
+import com.sosa.loginconarchivo.ui.registro.Editar;
+import com.sosa.loginconarchivo.ui.registro.Registro;
 
 public class MainActivityViewModel extends AndroidViewModel {
     private Context context;
